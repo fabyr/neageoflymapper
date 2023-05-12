@@ -42,13 +42,18 @@ def download_all(meta) -> Image:
     image_size, tile_list = meta
     img = Image.new("RGBA", image_size, 0)
 
-    for i, (x, y, url) in enumerate(tile_list):
-        print(f"Downloading Tile #{i+1} of {len(tile_list)} [{url}]")
-        tile_response = requests.get(url)
-        try:
-            with Image.open(BytesIO(tile_response.content)) as tile:
-                img.paste(tile, box=(x, y))
-        except:
-            pass
+    try:
+        for i, (x, y, url) in enumerate(tile_list):
+            print(f"Downloading Tile #{i+1} of {len(tile_list)} [{url}]")
+            tile_response = requests.get(url)
+            try:
+                with Image.open(BytesIO(tile_response.content)) as tile:
+                    img.paste(tile, box=(x, y))
+            except KeyboardInterrupt as ki:
+                raise ki
+            except:
+                pass
+    except KeyboardInterrupt:
+        print("Interrupting download.")
     
     return img
