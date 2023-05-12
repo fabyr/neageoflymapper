@@ -1,4 +1,4 @@
-from typing import Callable, Literal
+from typing import Callable
 from PIL import Image
 import json
 import requests
