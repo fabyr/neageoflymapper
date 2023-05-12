@@ -51,7 +51,8 @@ def download_all(meta) -> Image:
                     img.paste(tile, box=(x, y))
             except KeyboardInterrupt as ki:
                 raise ki
-            except:
+            except Exception as e:
+                print(f"Tile #{i+1} failed: {e}")
                 pass
     except KeyboardInterrupt:
         print("Interrupting download.")
