@@ -1,6 +1,9 @@
 if __name__ == "__main__":
     import json
-    import core
+    try:
+        import core
+    except TypeError:
+        import core_legacy as core
     from PIL import Image
     import os
 
@@ -12,18 +15,22 @@ if __name__ == "__main__":
         id = input("Enter ID: ")
         try:
             id = int(id)
-            break
+            
+            print(f"Fetching info for {id}...")
+            print()
+            features = core.get_features(id)
+
+            if features["data"]["images"]["features"] is None:
+                print("Wrong Image ID; Not Found")
+                id = None
+            else:
+                break
         except ValueError:
             print("Wrong format.")
             id = None
 
-    print(f"Fetching info for {id}...")
-    print()
-
-    features = core.get_features(id)
-
-    with open("features.json", "w") as f:
-        json.dump(features, f, indent=2)
+    #with open("features.json", "w") as f:
+    #    json.dump(features, f, indent=2)
     
     feature = features["data"]["images"]["features"][0]
 
@@ -47,7 +54,12 @@ if __name__ == "__main__":
     print(f">> Final image size: {image_width}x{image_height}")
     print(f">> Tilecount: {len(tile_list)}")
     print()
-    input("Press Enter to download or Ctrl+C to exit now or anytime during download.")
+    try:
+        input("Press Enter to download or Ctrl+C to exit now or anytime during download.")
+    except KeyboardInterrupt:
+        print()
+        print("Exited.")
+        exit()
     print()
     img = core.download_all(((image_width, image_height), tile_list))
     path_n = f'output_{id}_{zoom}'
