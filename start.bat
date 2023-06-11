@@ -1,5 +1,5 @@
 @echo off
 CALL env\Scripts\activate && python main.py
 
-echo Enter zum Beenden.
+echo Press ENTER to exit.
 pause >nul

@@ -1,8 +1,8 @@
 @echo off
 python --version && python -m venv env && CALL env\Scripts\activate && python -m pip install --upgrade pip && python -m pip install -r requirements.txt && (
-  echo FERTIG
+  echo DONE
 ) || (
-  echo FEHLGESCHLAGEN
+  echo FAILED
 )
-echo Enter zum beenden.
+echo Press ENTER to exit.
 pause >nul
