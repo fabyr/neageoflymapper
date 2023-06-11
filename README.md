@@ -29,10 +29,10 @@ python main.py
 In order to find the ID of an Image,
 use the Devtools of a browser as follows:
 
-1. Select the `Network` or `Networking` tab
+1. Select the `Network` or `Networking` tab\
    ![Devtools Network Tab](/assets/image1.png)
-2. Enter `getFeature?` into the filter
+2. Enter `getFeature?` into the filter\
    ![Filter](/assets/image2.png)
-3. Upon selection of a `Circle` on the map, the corresponding Network request showing the ID should appear.
+3. Upon selection of a `Circle` on the map, the corresponding Network request showing the ID should appear.\
    ![Filter](/assets/image3.png)
    In this Case the ID is `55345746`. This is the ID to enter in the program.
