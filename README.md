@@ -34,5 +34,5 @@ use the Devtools of a browser as follows:
 2. Enter `getFeature?` into the filter\
    ![Filter](/assets/image2.png)
 3. Upon selection of a `Circle` on the map, the corresponding Network request showing the ID should appear.\
-   ![Filter](/assets/image3.png)
+   ![Filter](/assets/image3.png)\
    In this Case the ID is `55345746`. This is the ID to enter in the program.
