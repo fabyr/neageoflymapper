@@ -29,7 +29,7 @@ python main.py
 
 ## Usage
 In order to find the ID of an Image,
-use the Devtools of a browser as follows:
+use the Devtools of a browser as follows (Can usually be opened by pressing `F12`):
 
 1. Select the `Network` or `Networking` tab\
    ![Devtools Network Tab](/assets/image1.png)
