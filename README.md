@@ -22,6 +22,8 @@ git clone https://github.com/fabyr/neageoflymapper.git
 cd neageoflymapper
 python3 -m venv env
 source env/bin/activate
+python -m pip install -r requirements.txt
+
 python main.py
 ```
 
